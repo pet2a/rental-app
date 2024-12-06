@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Agents - EstateAgency Bootstrap Template</title>
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+    {% load static %}
+
+  <!-- Favicons -->
+  <link href="{% static 'assets/img/favicon.png' %}" rel="icon">
+  <link href="{% static 'assets/img/apple-touch-icon.png' %}" rel="apple-touch-icon">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="{% static 'assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/aos/aos.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/fontawesome-free/css/all.min.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
+
+  <!-- Main CSS File -->
+  <link href="{% static 'assets/css/main.css' %}" rel="stylesheet">
+
+</head>
+
+<body class="agents-page">
+
+  <header id="header" class="header d-flex align-items-center fixed-top">
+    <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
+
+      <a href="index.html" class="logo d-flex align-items-center">
+        <!-- Uncomment the line below if you also wish to use an image logo -->
+        <!-- <img src="assets/img/logo.png" alt=""> -->
+        <h1 class="sitename">Estate<span>Agency</span></h1>
+      </a>
+
+       <nav id="navmenu" class="navmenu">
+        <ul>
+          <li><a href="{% url 'index' %}" class="active">Home</a></li>
+          <li><a href="{% url 'about' %}">About</a></li>
+          <li><a href="{% url 'services' %}">Services</a></li>
+          <li><a href="{% url 'properties' %}">Properties</a></li>
+          <li><a href="{% url 'agents' %}">Agents</a></li>
+          <li class="dropdown"><a href="#"><span>Dropdown</span>
+              <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+            <ul>
+              <li><a href="#">Dropdown 1</a></li>
+              <li class="dropdown"><a href="#"><span>Deep Dropdown</span>
+                  <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+                <ul>
+                  <li><a href="#">Deep Dropdown 1</a></li>
+                  <li><a href="#">Deep Dropdown 2</a></li>
+                  <li><a href="#">Deep Dropdown 3</a></li>
+                  <li><a href="#">Deep Dropdown 4</a></li>
+                  <li><a href="#">Deep Dropdown 5</a></li>
+                </ul>
+              </li>
+              <li><a href="#">Dropdown 2</a></li>
+              <li><a href="#">Dropdown 3</a></li>
+              <li><a href="#">Dropdown 4</a></li>
+            </ul>
+          </li>
+          <li><a href="{% url 'contact' %}">Contact</a></li>
+        </ul>
+        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+      </nav>
+
+
+    </div>
+  </header>
+
+  <main class="main">
+
+    <!-- Page Title -->
+    <div class="page-title" data-aos="fade">
+      <div class="heading">
+        <div class="container">
+          <div class="row d-flex justify-content-center text-center">
+            <div class="col-lg-8">
+              <h2>Meet Our Trusted Agents</h2>
+              <p class="mb-0">Connect with experienced agents to find your ideal property or manage your rentals effectively.</p>
+              <a href="{% url 'contact_agent' %}" class="btn btn-outline-success" role="button">Get In Touch With An Agent</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- End Page Title -->
+
+    <!-- Agents Section -->
+    <section id="agents" class="agents section">
+
+      <div class="container">
+
+        <div class="row gy-5">
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+            <div class="member">
+              <div class="pic">
+                  <img src="{% static 'assets/img/team/team-1.jpg' %}" class="img-fluid" alt=""></div>
+              <div class="member-info">
+                <h4>Walter White</h4>
+                <span>Chief Executive Officer</span>
+                <div class="social">
+                  <a href=""><i class="bi bi-twitter-x"></i></a>
+                  <a href=""><i class="bi bi-facebook"></i></a>
+                  <a href=""><i class="bi bi-instagram"></i></a>
+                  <a href=""><i class="bi bi-linkedin"></i></a>
+                </div>
+              </div>
+            </div>
+          </div><!-- End Team Member -->
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+            <div class="member">
+              <div class="pic">
+                  <img src="{% static 'assets/img/team/team-2.jpg' %}" class="img-fluid" alt=""></div>
+              <div class="member-info">
+                <h4>Sarah Jhonson</h4>
+                <span>Rent Manager</span>
+                <div class="social">
+                  <a href=""><i class="bi bi-twitter-x"></i></a>
+                  <a href=""><i class="bi bi-facebook"></i></a>
+                  <a href=""><i class="bi bi-instagram"></i></a>
+                  <a href=""><i class="bi bi-linkedin"></i></a>
+                </div>
+              </div>
+            </div>
+          </div><!-- End Team Member -->
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+            <div class="member">
+              <div class="pic">
+                  <img src="{% static 'assets/img/team/team-3.jpg' %}" class="img-fluid" alt=""></div>
+              <div class="member-info">
+                <h4>William Anderson</h4>
+                <span>Sale manager<br></span>
+                <div class="social">
+                  <a href=""><i class="bi bi-twitter-x"></i></a>
+                  <a href=""><i class="bi bi-facebook"></i></a>
+                  <a href=""><i class="bi bi-instagram"></i></a>
+                  <a href=""><i class="bi bi-linkedin"></i></a>
+                </div>
+              </div>
+            </div>
+          </div><!-- End Team Member -->
+
+        </div>
+
+      </div>
+
+    </section><!-- /Agents Section -->
+
+  </main>
+<div class="d-flex">
+  <div class="container lead bg-danger-subtle">
+<p>
+    <h4 class="text-center">How It Works (Agent Assistance Process)</h4>
+      <p>We’ve designed a simple, streamlined process to connect you with the right agent and get the assistance you need quickly and efficiently.</p>
+
+    <h5>Browse Our Agent Profiles</h5>
+     <p>Start by exploring our directory of experienced agents. Each profile includes details about their specialization, experience, and contact information, making it easy for you to choose the right professional.</p>
+
+<h5>Reach Out to an Agent</h5>
+    <p>Once you’ve identified an agent that fits your needs, contact them directly through the provided phone number or email. Our agents are approachable and eager to assist.</p>
+
+<h5>Share Your Requirements</h5>
+    <p>Schedule a meeting or consultation with your chosen agent to discuss your needs in detail. Tenants can share preferences like location, budget, and property type, while landlords can outline their expectations for tenant placement or property management.</p>
+
+<h5>Property Search or Tenant Screening Begins</h5>
+
+<p>
+    <ul>
+    <li>For tenants: The agent will curate a list of properties that match your preferences and organize viewings at your convenience. </li>
+    <li>For landlords: The agent will market your property, screen prospective tenants, and handle inquiries professionally. </li>
+     </ul>
+</p>
+    <h5>Receive Expert Guidance</h5>
+    <p>Benefit from your agent’s insights on market trends, pricing strategies, and legal compliance. They’ll guide you through every step of the process, ensuring you make informed decisions.     </p>
+
+</div>
+
+<div class="container lead p-2 bg-dark-subtle">
+    <h4 class="text-center">Why Choose Our Agents?</h4>
+    <p>Our agents stand out in the competitive real estate market because they bring unparalleled expertise, professionalism, and dedication to every interaction. Here's why choosing our agents is the best decision for your rental needs:</p>
+
+    <h5>Extensive Local Knowledge</h5>
+    <p>Our agents are well-versed in the local property market, ensuring they understand every neighborhood’s unique characteristics, rental trends, and pricing dynamics. This insight helps match tenants to their perfect homes and landlords to the right opportunities.</p>
+
+    <h5>Personalized Support</h5>
+    <p>We recognize that every client has unique needs. Whether you're a tenant looking for a cozy apartment or a landlord seeking reliable tenants, our agents provide tailored recommendations to meet your specific requirements.</p>
+
+    <h5>Comprehensive Property Management</h5>
+    <p>For landlords, our agents go beyond tenant placement. They handle everything from marketing properties, screening tenants, and drafting lease agreements to managing rent collection and ensuring timely maintenance.</p>
+
+    <h5>Commitment to Excellence</h5>
+    <p>Our agents take pride in maintaining high professional standards. They ensure every transaction is handled transparently, ethically, and efficiently.</p>
+
+    <h5>Proven Success Track Record</h5>
+    <p>With years of experience and numerous successful deals, our agents have built a reputation for delivering results. Their expertise ensures a seamless experience for both tenants and landlords.</p>
+
+    <h5>Efficient Problem Solvers</h5>
+    <p>Our agents are skilled at addressing challenges, whether it's finding a home within a tight budget or resolving disputes between tenants and landlords. They are committed to ensuring smooth and hassle-free processes.</p>
+
+</div>
+</div>
+ <footer id="footer" class="footer light-background">
+
+    <div class="container">
+      <div class="row gy-3">
+        <div class="col-lg-3 col-md-6 d-flex">
+          <i class="bi bi-geo-alt icon"></i>
+          <div class="address">
+            <h4>Address</h4>
+            <p>A108 A Street</p>
+            <p>SIAYA, SI 041 40600</p>
+            <p></p>
+          </div>
+
+        </div>
+
+        <div class="col-lg-3 col-md-6 d-flex">
+          <i class="bi bi-telephone icon"></i>
+          <div>
+            <h4>Contact</h4>
+            <p>
+              <strong>Phone:</strong> <span>+254 798890993</span><br>
+              <strong>Email:</strong> <span>info@omia.com</span><br>
+            </p>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6 d-flex">
+          <i class="bi bi-clock icon"></i>
+          <div>
+            <h4>Opening Hours</h4>
+            <p>
+              <strong>Mon-Sat:</strong> <span>11AM - 23PM</span><br>
+              <strong>Sunday</strong>: <span>Closed</span>
+            </p>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6">
+          <h4>Follow Us</h4>
+          <div class="social-links d-flex">
+            <a href="#" class="twitter"><i class="bi bi-twitter-x"></i></a>
+            <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
+            <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
+            <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </footer>
+
+   <footer class="bg-dark text-white mt-5 py-3">
+        <div class="container text-center">
+            <p class="mb-0">&copy; 2024 CRIBDASH Rental Management System. All rights reserved.</p>
+        </div>
+
+  </footer>
+
+  <!-- Scroll Top -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Preloader -->
+  <div id="preloader"></div>
+
+  <!-- Vendor JS Files -->
+  <script src="{% static 'assets/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/php-email-form/validate.js' %}"></script>
+  <script src="{% static 'assets/vendor/aos/aos.js' %}"></script>
+  <script src="{% static 'assets/vendor/swiper/swiper-bundle.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/purecounter/purecounter_vanilla.js' %}"></script>
+
+  <!-- Main JS File -->
+  <script src="{% static 'assets/js/main.js' %}"></script>
+
+</body>
+
+</html>

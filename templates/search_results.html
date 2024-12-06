@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Search - CRIBDASH</title>
+    {% load static %}
+
+  <!-- Favicons --<img src=" static 'static/assets/img/login.jpg' %}" alt="">>
+  <link href="{% static 'assets/img/favicon.png' %}" rel="icon">
+  <link href="{% static 'assets/img/apple-touch-icon.png' %}" rel="apple-touch-icon">
+
+  <-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="{% static 'assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/aos/aos.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/fontawesome-free/css/all.min.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
+
+  <!-- Main CSS File -->
+  <link href="{% static 'assets/css/main.css' %}" rel="stylesheet">
+
+</head>
+<body>
+    <header id="header" class="header d-flex align-items-center fixed-top">
+    <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
+
+      <a href="index.html" class="logo d-flex align-items-center">
+        <!--  if you also wish to use an image logo -->
+         <img src="{% static 'assets/img/crib1.png' %}" alt="">
+        <h1 class="sitename">CRIB<span>DASH</span></h1>
+      </a>
+
+      <nav id="navmenu" class="navmenu">
+        <ul>
+          <li><a href="{% url 'index' %}" class="active">Home</a></li>
+          <li><a href="{% url 'about' %}">About</a></li>
+          <li><a href="{% url 'services' %}">Services</a></li>
+          <li><a href="{% url 'agents' %}">Agents</a></li>
+          <li class="dropdown"><a href="{% url 'properties' %}"><span>Properties</span>
+              <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+            <ul>
+              <li><a href="#">GATE A</a></li>
+              <li class="dropdown"><a href="#"><span>Far From Campus</span>
+                  <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+                <ul>
+                  <li><a href="#">BONDO TOWN</a></li>
+                  <li><a href="#">KOYUCHO</a></li>
+                  <li><a href="#">MARANDA</a></li>
+                  <li><a href="#">SIAYA</a></li>
+                  <li><a href="#">OUTSKIRTS</a></li>
+                </ul>
+              </li>
+              <li><a href="#">GATE B</a></li>
+              <li><a href="#">GATE C</a></li>
+              <li><a href="#">GATE D</a></li>
+            </ul>
+          </li>
+          <li><a href="{% url 'contact' %}">Contact</a></li>
+        </ul>
+        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+      </nav>
+
+    </div>
+  </header>
+
+
+    <!-- search_results.html -->
+
+
+    <!-- Advanced Search Filter -->
+    <div class="container my-5">
+        <h2 class="text-center mb-4">Advanced Search</h2>
+        <form method="GET" action="{% url 'search_results' %}">
+            <div class="row">
+                <!-- Price Range -->
+                <div class="col-md-4">
+                    <label for="min_price" class="form-label">Min Price</label>
+                    <input type="number" class="form-control" id="min_price" name="min_price" placeholder="Min Price" value="{{ request.GET.min_price }}">
+                </div>
+                <div class="col-md-4">
+                    <label for="max_price" class="form-label">Max Price</label>
+                    <input type="number" class="form-control" id="max_price" name="max_price" placeholder="Max Price" value="{{ request.GET.max_price }}">
+                </div>
+
+                <!-- Location -->
+                <div class="col-md-4">
+                    <label for="location" class="form-label">Location</label>
+                    <input type="text" class="form-control" id="location" name="location" placeholder="Location" value="{{ request.GET.location }}">
+                </div>
+            </div>
+
+            <div class="row mt-3">
+                <!-- Bedrooms -->
+                <div class="col-md-4">
+                    <label for="bedrooms" class="form-label">Bedrooms</label>
+                    <select class="form-select" id="bedrooms" name="bedrooms">
+                        <option value="">Any</option>
+                        <option value="1" {% if request.GET.bedrooms == "1" %}selected{% endif %}>1</option>
+                        <option value="2" {% if request.GET.bedrooms == "2" %}selected{% endif %}>2</option>
+                        <option value="3" {% if request.GET.bedrooms == "3" %}selected{% endif %}>3</option>
+                        <option value="4" {% if request.GET.bedrooms == "4" %}selected{% endif %}>4+</option>
+                    </select>
+                </div>
+
+                <!-- Sort By -->
+                <div class="col-md-4">
+                    <label for="sort_by" class="form-label">Sort By</label>
+                    <select class="form-select" id="sort_by" name="sort_by">
+                        <option value="price_asc" {% if request.GET.sort_by == "price_asc" %}selected{% endif %}>Price (Low to High)</option>
+                        <option value="price_desc" {% if request.GET.sort_by == "price_desc" %}selected{% endif %}>Price (High to Low)</option>
+                    </select>
+                </div>
+
+                <!-- Submit Button -->
+                <div class="col-md-4">
+                    <button type="submit" class="btn btn-primary mt-4 w-100">Search</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <!-- Search Results -->
+    <div class="container my-5">
+        <h2 class="text-center mb-4">Search Results</h2>
+        <div class="row">
+            {% for appartment in apartments %}
+            <div class="col-md-4">
+                <div class="card mb-4">
+                    <img src="{{ appartment.image.url }}" class="card-img-top" alt="Apartment Image">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ appartment.name }}</h5>
+                        <p class="card-text">Price: KSh {{ appartment.price }}</p>
+                        <p class="card-text">Location: {{ appartment.location }}</p>
+                        <p class="card-text">{{ appartment.description|slice:":100" }}...</p>
+                        <a href="#" class="btn btn-primary">View Details</a>
+                    </div>
+                </div>
+            </div>
+            {% empty %}
+            <p>No apartments found for the given criteria.</p>
+            {% endfor %}
+        </div>
+    </div>
+
+
+     <footer id="footer" class="footer light-background">
+
+    <div class="container">
+      <div class="row gy-3">
+        <div class="col-lg-3 col-md-6 d-flex">
+          <i class="bi bi-geo-alt icon"></i>
+          <div class="address">
+            <h4>Address</h4>
+            <p>A108 A Street</p>
+            <p>SIAYA, SI 041 40600</p>
+            <p></p>
+          </div>
+
+        </div>
+
+        <div class="col-lg-3 col-md-6 d-flex">
+          <i class="bi bi-telephone icon"></i>
+          <div>
+            <h4>Contact</h4>
+            <p>
+              <strong>Phone:</strong> <span>+254 798890993</span><br>
+              <strong>Email:</strong> <span>info@omia.com</span><br>
+            </p>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6 d-flex">
+          <i class="bi bi-clock icon"></i>
+          <div>
+            <h4>Opening Hours</h4>
+            <p>
+              <strong>Mon-Sat:</strong> <span>11AM - 23PM</span><br>
+              <strong>Sunday</strong>: <span>Closed</span>
+            </p>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6">
+          <h4>Follow Us</h4>
+          <div class="social-links d-flex">
+            <a href="#" class="twitter"><i class="bi bi-twitter-x"></i></a>
+            <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
+            <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
+            <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+ </footer>
+     <footer class="bg-dark text-white mt-5 py-3">
+        <div class="container text-center">
+            <p class="mb-0">&copy; 2024 CRIBDASH Rental Management System. All rights reserved.</p>
+        </div>
+
+  </footer>
+
+
+
+  <!-- Scroll Top -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Preloader -->
+  <div id="preloader"></div>
+
+  <!-- Vendor JS Files -->
+  <script src="{% static 'assets/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/php-email-form/validate.js' %}"></script>
+  <script src="{% static 'assets/vendor/aos/aos.js' %}"></script>
+  <script src="{% static 'assets/vendor/swiper/swiper-bundle.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/purecounter/purecounter_vanilla.js' %}"></script>
+
+  <!-- Main JS File -->
+  <script src="{% static 'assets/js/main.js' %}"></script>
+
+</body>
+</html>
